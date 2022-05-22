@@ -92,5 +92,3 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 //how does the website know if i click the add button it will send a post request to store the content ?
 // how does the website know that if i click the edit button it will go to edit or if i click the delete button it will remove the item
 
-
-console.log(1+1)
