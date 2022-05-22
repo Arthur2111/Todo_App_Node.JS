@@ -9,7 +9,7 @@ dotenv.config();
 
 app.use("/static", express.static("public")); // connects the css  file to index.js but can also be used to connect  &  html  &  ejs
 
-app.use(express.urlencoded({ extended: true })); //express.urlencoded() is a method inbuilt in express to recognize the incoming Request Object as strings or arrays. This method is called as a middleware in your application using the code: app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true })); // urlencoded middleware used to handle html form data without this body of data will be undefined
 
 //view engine configuration
 app.set("view engine", "ejs");
@@ -27,7 +27,9 @@ app.get('/home', (req, res) => {
     });
 });
 
-// POST METHOD
+// POST METHOD -- post requests, normally used when creating some form of data. data comes from the html form and the post requests will make the data to be ready to be sent to the end route and save data to a database
+// post requests allows the data from html form to be sent to the end route and to read the data and save onto database
+
 app.post(`/${version}/home`, async (req, res) => {
     const TodoTask = require("./models/TodoTask.js");
 
@@ -89,3 +91,6 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 
 //how does the website know if i click the add button it will send a post request to store the content ?
 // how does the website know that if i click the edit button it will go to edit or if i click the delete button it will remove the item
+
+
+console.log(1+1)
